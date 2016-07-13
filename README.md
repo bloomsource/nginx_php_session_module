@@ -27,7 +27,8 @@ config items:
 php_session_check:  if session check is turn on ,  on/offf
 php_session_save_path:  where the session file store, this must be same as session.save_path in /etc/php.ini
 php_session_save_depth: the store directory depth of session file, for example , if session id is rdeoraoarehl5jd91morivgn66,
-                        the session file will be /tmp/php-session/r/d/sess_rdeoraoarehl5jd91morivgn66, default value is 0.
+                        and save_depth is 2, the session file will be /tmp/php-session/r/d/sess_rdeoraoarehl5jd91morivgn66,
+                        default value is 0.
 php_session_cookie:     the cookie name of php session id, default vlaue is "PHPSESSID"
 php_session_key:        the key of value in php $_SESSION[] variable
 php_session_retcode:    the http response code if access is denied, default is 403;
