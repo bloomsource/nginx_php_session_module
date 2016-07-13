@@ -60,6 +60,7 @@ login_process.php
 logout.php
 ```php
 <?php
+  session_start();
   unset( $_SESSION["user"] );
   header( "Location: /" );
 ?>
