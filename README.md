@@ -54,3 +54,11 @@ login_process.php
   header( "Location: /user_profile.php" );
 ?>
 ```
+
+logout.php
+```php
+<?php
+  unset( $_SESSION["user"] );
+  header( "Location: /" );
+?>
+```
