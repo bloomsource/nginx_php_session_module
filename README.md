@@ -37,6 +37,7 @@ php_session_retcode:    the http response code if access is denied, default is 4
 [Session]
 session.save_path="/tmp/php-session/";
 session.save_handler = files
+session.name = PHPSESSID
 ```
 
 ###php code
