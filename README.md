@@ -12,7 +12,7 @@ already login, if not login, it will deny the access.
 ## configure example
 
 ###nginx.conf
-...
+...bash
 location ~ \.mp4${
   php_session_check on;
   php_session_save_path /tmp/php-session/;
@@ -33,7 +33,7 @@ php_session_key:        the key of value in php $_SESSION[] variable
 php_session_retcode:    the http response code if access is denied, default is 403;
 ...
 ###/etc/php.ini
-...
+...bash
 [Session]
 session.save_path="/tmp/php-session/";
 session.save_handler = files
@@ -41,7 +41,7 @@ session.save_handler = files
 
 ###php code
 login_process.php
-...
+...php
 <?php
   $id = $_REQUEST["id"];
   $passwd = $_REQUEST["passwd"];
