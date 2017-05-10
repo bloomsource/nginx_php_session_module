@@ -147,7 +147,7 @@ static ngx_int_t ngx_http_php_session_handler(ngx_http_request_t* r) {
     
     size_t rc;
     ngx_str_t value;
-    FILE* f;
+    int fd;
     
     //write_log( "ngx_http_php_session_handler()" );
     
@@ -178,17 +178,17 @@ static ngx_int_t ngx_http_php_session_handler(ngx_http_request_t* r) {
     
     //write_log( "session file: %s", file );
     
-    f = fopen( file, "r" );
-    if( !f )
+    fd = open( file, O_RDONLY );
+    if( fd == -1 )
         return lcf->retcode;
     
-    rc = fread( tmp, 1, sizeof(tmp)-1, f );
+    rc = read( fd, tmp, sizeof(tmp)-1 );
     if( rc == 0 )
     {
-        fclose( f );
+        close( fd );
         return lcf->retcode;
     }
-    fclose( f );
+    close( fd );
     
     tmp[rc] = 0;
     if( str_split( tmp, ';', flds, 20, &count ) )
