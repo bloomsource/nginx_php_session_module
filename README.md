@@ -1,6 +1,6 @@
 # nginx_php_session_module
 
-##what's this module for?
+## what's this module for?
 
 this module is used for protect static resource(like *.mp4, *.jpg) access for nginx server, 
 when a php start a session , it set a cookie name PHPSESSID, and set some session context on session.
@@ -11,7 +11,7 @@ already login, if not login, it will deny the access.
 
 ## configure example
 
-###nginx.conf
+### nginx.conf
 ```
 location ~ \.mp4${
   php_session_check on;
@@ -33,7 +33,7 @@ php_session_cookie:     the cookie name of php session id, default vlaue is "PHP
 php_session_key:        the key of value in php $_SESSION[] variable
 php_session_retcode:    the http response code if access is denied, default is 403;
 ```
-###/etc/php.ini
+### /etc/php.ini
 ```
 [Session]
 session.save_path="/tmp/php-session/";
@@ -41,7 +41,7 @@ session.save_handler = files
 session.name = PHPSESSID
 ```
 
-###php code
+### php code
 login_process.php
 ```php
 <?php
