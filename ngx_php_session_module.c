@@ -29,7 +29,7 @@ static int str_split( char* str, char delimiter, char* fields[], int size, int* 
 static ngx_command_t ngx_http_php_session_commands[] = {
     {
         ngx_string( "php_session_check" ),
-        NGX_HTTP_LOC_CONF | NGX_CONF_TAKE1,
+        NGX_HTTP_LOC_CONF | NGX_CONF_TAKE1 | NGX_CONF_FLAG,
         ngx_http_php_session,
         NGX_HTTP_LOC_CONF_OFFSET,
         offsetof(ngx_http_php_session_loc_conf_t, check),
@@ -258,7 +258,7 @@ static char* ngx_http_php_session(ngx_conf_t *cf, ngx_command_t *cmd, void *conf
     clcf = ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);
     clcf->handler = ngx_http_php_session_handler;
 
-    ngx_conf_set_str_slot(cf, cmd, conf);
+    ngx_conf_set_flag_slot(cf, cmd, conf);
 
     return NGX_CONF_OK;
 }
