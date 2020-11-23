@@ -6,7 +6,7 @@ this module is used for protect static resource(like *.mp4, *.jpg) access for ng
 when a php start a session , it set a cookie name PHPSESSID, and set some session context on session.
 
 
-php session context is stored in a text file, this module read the session file and check if the use has
+php session context is stored in a text file, this module read the session file and check if the user has
 already login, if not login, it will deny the access.
 
 ## configure example
